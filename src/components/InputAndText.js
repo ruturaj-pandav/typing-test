@@ -38,6 +38,11 @@ export default function InputAndText({
         <input
           onChange={(e) => {
             setuser(e.target.value);
+            console.log(
+              "currently this is ",
+              e.target.value,
+              text[currentword]
+            );
           }}
           value={user}
           onKeyDown={(e) => {
@@ -47,18 +52,20 @@ export default function InputAndText({
             }
           }}
           autofocus
-          className="border w-2/3 my-6 py-4 px-3 border-gray-200 rounded bg-gray-300 outline-none font-bold text-3xl  "
+          className={`${(user.length > 0 && text[currentword]) &&  (user === text[currentword].slice(0,user.length) ? 'text-green-500' : 'text-red-500') } border w-2/3 my-6 py-4 px-3 border-gray-200 rounded bg-gray-300 outline-none font-bold text-3xl`}
         />
+        {console.log("this printeid : " ,text[currentword] )}
       </div>
       <div className="text-white text-3xl text-cyan-100 border-cyan-100  text-start w-2/3 mx-auto justify p-3 rounded h-fit ">
         {text.slice(0, maxwords).map((word, index) => {
-          
           return (
             <>
               <span
                 className={` my-2 ${
                   index < typingResults.length &&
-                  (typingResults[index].user === typingResults[index].word ? 'text-green-500':'text-red-500')
+                  (typingResults[index].user === typingResults[index].word
+                    ? "text-green-500"
+                    : "text-red-500")
                 } inline-block mx-2 font-light my-3 ${
                   index === currentword &&
                   "border  px-2  rounded  text-5xl my-3 block font-bold  duration-2000  "

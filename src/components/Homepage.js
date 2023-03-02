@@ -16,7 +16,7 @@ export default class componentName extends Component {
     };
   }
   onSpaceBar = (user, word) => {
-    console.log("pressed ", user.length, word.length);
+    
     user = user.trim();
     word = word.trim();
     let typingresults = this.state.typingResults;
@@ -31,10 +31,7 @@ export default class componentName extends Component {
       this.setState({maxwords :this.state.maxwords + 25})
     }
     this.setState({ typingResults: typingresults });
-    console.log(
-      "these are tyipnog results till now ",
-      this.state.typingResults
-    );
+    
   };
 
   restart = () => {

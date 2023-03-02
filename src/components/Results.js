@@ -7,10 +7,7 @@ export default function Results({ typingResults, restart }) {
 
   useEffect(() => {
     if (typingResults.length > 0) {
-      console.log(
-        "these are the typing Results that we are going to display here ... ",
-        typingResults
-      );
+      
    
       let cw = 0;
       let tw = 0;
@@ -23,12 +20,11 @@ export default function Results({ typingResults, restart }) {
       settotalwords(tw);
       setwpm(cw);
       setcorrectwords(cw);
-      console.log("totalword: ", tw);
-      console.log("correctwords: ", cw);
+   
       setaccuracy(
         ((tw - (tw - cw)) / tw) * 100
       );
-      console.log("more length");
+    
     } else {
       settotalwords(0);
     }
